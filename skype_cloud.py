@@ -12,6 +12,7 @@ class cloud(object):
             for result in requests.get('http://gibson.tgqx.at/api/%s'%sys.argv[1]).json():
                 if result['public'] not in self.oldRes:
                     print("[+] New IP: %s"%result['public'])
+                    self.oldRes.append(result['public'])
 
 if __name__ == "__main__":
     cloud()
